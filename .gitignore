@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Vector DB and scraped data (large, regenerable)
+vectordb/*
+!vectordb/.gitkeep
+data/**/*
+!data/**/.gitkeep
+
+# Node
+node_modules/
+dist/
+.next/
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/

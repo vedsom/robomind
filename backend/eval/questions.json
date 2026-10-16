@@ -1,0 +1,22 @@
+[
+  {"q": "How do I create a ROS2 workspace?", "expect": ["Creating-A-Workspace"]},
+  {"q": "How do I write a publisher in Python?", "expect": ["Writing-A-Simple-Py-Publisher-And-Subscriber"]},
+  {"q": "How do I write a service and client in Python?", "expect": ["Writing-A-Simple-Py-Service-And-Client"]},
+  {"q": "How do I list active topics and see their message type?", "expect": ["Understanding-ROS2-Topics"]},
+  {"q": "How do I set a node parameter from the command line?", "expect": ["Understanding-ROS2-Parameters"]},
+  {"q": "How do I declare and use parameters inside a Python node?", "expect": ["Using-Parameters-In-A-Class-Python"]},
+  {"q": "How do I create a custom action?", "expect": ["Creating-an-Action"]},
+  {"q": "What does ros2 doctor do?", "expect": ["Getting-Started-With-Ros2doctor"]},
+  {"q": "How do I source the ROS 2 environment in every new terminal?", "expect": ["Configuring-ROS2-Environment"]},
+  {"q": "How do I create a new Python package?", "expect": ["Creating-Your-First-ROS2-Package"]},
+  {"q": "How do I start several nodes from one launch file?", "expect": ["Launch-system", "Creating-Launch-Files"]},
+  {"q": "How do I record and replay topic data?", "expect": ["Recording-And-Playing-Back-Data"]},
+  {"q": "How do I view logs with rqt_console?", "expect": ["Rqt-Console"]},
+  {"q": "How do I broadcast a static transform with tf2?", "expect": ["Tf2"]},
+  {"q": "How do I move turtlesim with the keyboard?", "expect": ["Introducing-Turtlesim"]},
+  {"q": "How do I list the running nodes and inspect one?", "expect": ["Understanding-ROS2-Nodes"]},
+  {"q": "How do I build only one package with colcon?", "expect": ["Colcon-Tutorial"]},
+  {"q": "How do I use a URDF with robot_state_publisher?", "expect": ["Using-URDF-with-Robot-State-Publisher"]},
+  {"q": "How do I define custom msg and srv files?", "expect": ["Custom-ROS2-Interfaces"]},
+  {"q": "How do I set up a robot simulation in Webots?", "expect": ["Webots"]}
+]

@@ -8,7 +8,7 @@ import sys
 
 from langchain_ollama import ChatOllama
 
-from retriever import search
+from retriever import expand, search
 
 LLM_MODEL = "gemma4:31b"
 POOL = 30    # candidates fetched from ChromaDB
@@ -64,6 +64,7 @@ def build_prompt(question: str, hits: list[dict]) -> str:
 def answer(question: str, version: str | None = "humble") -> dict:
     candidates = search(question, k=POOL, version=version)
     top = rerank(question, candidates)
+    top = expand(top)   # add the next chunk of each page so procedures stay complete
     # present chunks in reading order (page, then position) so steps stay sequential
     top.sort(key=lambda h: (h['metadata']['url'], h['metadata']['chunk_index']))
     llm = ChatOllama(model=LLM_MODEL, num_ctx=12288, temperature=0)

@@ -11,7 +11,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent / "rag"))
-from retriever import search, _col  # noqa: E402
+from retriever import expand, search, _col  # noqa: E402
 
 POOL = 30
 
@@ -23,6 +23,7 @@ def matches(meta, case):
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--rerank", action="store_true")
+    ap.add_argument("--expand", action="store_true")
     args = ap.parse_args()
     if args.rerank:
         from pipeline import rerank
@@ -38,7 +39,10 @@ def main() -> None:
             continue
         if c["q"] not in cache:
             hits = search(c["q"], k=POOL)
-            cache[c["q"]] = (hits, rerank(c["q"], hits) if args.rerank else None)
+            top = rerank(c["q"], hits) if args.rerank else None
+            if top is not None and args.expand:
+                top = expand(top)
+            cache[c["q"]] = (hits, top)
         hits, top = cache[c["q"]]
         rank = next((i for i, h in enumerate(hits, 1) if matches(h["metadata"], c)), None)
         done += 1
